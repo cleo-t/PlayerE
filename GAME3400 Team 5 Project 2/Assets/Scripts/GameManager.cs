@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     {
         this.player = GameObject.FindGameObjectWithTag("Player");
 
-        AggressiveDoor.KillPlayerEvent += this.OnWallKill;
+        AggressiveDoor.KillPlayerEvent += this.OnPlayerKill;
+        KillFloor.KillPlayerEvent += this.OnPlayerKill;
         this.currentCheckpointIndex = 0;
     }
 
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnWallKill()
+    private void OnPlayerKill()
     {
         this.player.GetComponent<CharacterController>().enabled = false;
         this.player.transform.position = this.checkpoints[(int)this.currentCheckpointIndex].position;
