@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AggressiveDoor : MonoBehaviour
 {
+    public static event Action KillPlayerEvent;
+
     [SerializeField]
     // Meters
     private float distance = 10;
@@ -114,5 +117,21 @@ public class AggressiveDoor : MonoBehaviour
     private Vector3 GetWaitingPosition()
     {
         return this.closedPosition - (this.transform.forward * this.distance);
+    }
+
+    public void HitPlayer()
+    {
+        if (this.state == State.Attacking)
+        {
+            this.InvokeKillPlayer();
+        }
+    }
+
+    private void InvokeKillPlayer()
+    {
+        if (KillPlayerEvent != null)
+        {
+            KillPlayerEvent.Invoke();
+        }
     }
 }
