@@ -97,7 +97,7 @@ public class AggressiveDoor : MonoBehaviour
     private void AttackingUpdate()
     {
         float lerpVal = Mathf.Min(Mathf.Pow(this.timer / this.attackDuration, 2), 1);
-        this.transform.position = this.GetWaitingPosition() + (this.transform.forward * lerpVal * distance);
+        this.transform.position = Vector3.Lerp(this.GetWaitingPosition(), this.closedPosition, lerpVal);
     }
 
     private void ClosedUpdate()
@@ -108,7 +108,7 @@ public class AggressiveDoor : MonoBehaviour
     private void ResettingUpdate()
     {
         float lerpVal = Mathf.Min(Mathf.Pow(this.timer / this.resetDuration, 1.5f), 1);
-        this.transform.position = this.closedPosition - (this.transform.forward * lerpVal * distance);
+        this.transform.position = Vector3.Lerp(this.closedPosition, this.GetWaitingPosition(), lerpVal);
     }
 
     private Vector3 GetWaitingPosition()
