@@ -30,13 +30,13 @@ public class TriggerBehavior : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Here1");
-        if (!triggered) {
+        if (!triggered && other.gameObject.tag.Equals("Player")) {
             rb.transform.position = moveAmount;
             audioSource.Play();
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        
     }
 
 }
