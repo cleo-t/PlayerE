@@ -5,6 +5,17 @@ using UnityEngine;
 public class LightingTransition : MonoBehaviour
 {
     public static LightingTransition instance;
+    public float brightness
+    {
+        get
+        {
+            return this.brightnessVal;
+        }
+        set
+        {
+            this.SetBrightness(value);
+        }
+    }
 
     [SerializeField]
     [Range(0, 1)]
@@ -19,7 +30,7 @@ public class LightingTransition : MonoBehaviour
     private float transitionSpeed = 1;
 
     // [0,1]
-    private float brightness;
+    private float brightnessVal;
     // [0,1]
     private float targetBrightness;
 
@@ -40,7 +51,7 @@ public class LightingTransition : MonoBehaviour
 
     void Start()
     {
-        this.brightness = this.initialBrightness;
+        this.brightnessVal = this.initialBrightness;
         this.targetBrightness = this.initialBrightness;
 
         this.initialEnvironmentIntensity = RenderSettings.ambientIntensity;
@@ -49,11 +60,6 @@ public class LightingTransition : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            this.targetBrightness = this.targetBrightness == 1 ? 0 : 1;
-        }
-
         this.UpdateBrightness();
 
         this.UpdateFog();
@@ -67,25 +73,25 @@ public class LightingTransition : MonoBehaviour
 
     private void UpdateBrightness()
     {
-        this.brightness = Mathf.Lerp(this.brightness, this.targetBrightness, this.transitionSpeed * Time.deltaTime);
-        if (this.brightness - 0 < 0.001)
+        this.brightnessVal = Mathf.Lerp(this.brightnessVal, this.targetBrightness, this.transitionSpeed * Time.deltaTime);
+        if (this.brightnessVal - 0 < 0.001)
         {
-            this.brightness = 0;
+            this.brightnessVal = 0;
         }
-        if (this.brightness - 1 > -0.001)
+        if (this.brightnessVal - 1 > -0.001)
         {
-            this.brightness = 1;
+            this.brightnessVal = 1;
         }
     }
 
     private void UpdateFog()
     {
-        RenderSettings.fogDensity = Mathf.Lerp(this.darkFogDensity, this.brightFogDensity, this.brightness);
+        RenderSettings.fogDensity = Mathf.Lerp(this.darkFogDensity, this.brightFogDensity, this.brightnessVal);
     }
 
     private void UpdateEnvironmentLighting()
     {
-        RenderSettings.ambientIntensity = Mathf.Lerp(0, this.initialEnvironmentIntensity, this.brightness);
-        RenderSettings.reflectionIntensity = Mathf.Lerp(0, this.initialReflectionIntensity, this.brightness);
+        RenderSettings.ambientIntensity = Mathf.Lerp(0, this.initialEnvironmentIntensity, this.brightnessVal);
+        RenderSettings.reflectionIntensity = Mathf.Lerp(0, this.initialReflectionIntensity, this.brightnessVal);
     }
 }
