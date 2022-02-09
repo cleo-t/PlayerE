@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7146
+  m_Name: pb_Mesh-69168
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -366,7 +366,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7416
+  m_Name: pb_Mesh-69144
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -583,6 +583,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 790401487}
+    - target: {fileID: 312717426431511749, guid: 010468310d15f3647999ff5ea91240bc, type: 3}
+      propertyPath: initialState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 312717426431511750, guid: 010468310d15f3647999ff5ea91240bc, type: 3}
       propertyPath: m_SelectedEditorRenderState
       value: 2
@@ -603,7 +607,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-6728
+  m_Name: pb_Mesh-69120
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -797,7 +801,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-5932
+  m_Name: pb_Mesh-69192
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1014,6 +1018,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 36622028}
+    - target: {fileID: 312717426431511749, guid: 010468310d15f3647999ff5ea91240bc, type: 3}
+      propertyPath: initialState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 312717426431511750, guid: 010468310d15f3647999ff5ea91240bc, type: 3}
       propertyPath: m_SelectedEditorRenderState
       value: 2
@@ -1687,6 +1695,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1243012647}
+    - target: {fileID: 312717426431511749, guid: 010468310d15f3647999ff5ea91240bc, type: 3}
+      propertyPath: initialState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 312717426431511751, guid: 010468310d15f3647999ff5ea91240bc, type: 3}
       propertyPath: m_Mesh
       value: 

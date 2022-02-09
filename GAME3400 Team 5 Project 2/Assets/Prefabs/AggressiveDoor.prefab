@@ -333,6 +333,8 @@ MonoBehaviour:
   resetDuration: 3.5
   waitDuration: 0.15
   initialState: 0
+  impactClip: {fileID: 8300000, guid: cb93ef88a64489145804a9a8a845ff01, type: 3}
+  slideClip: {fileID: 8300000, guid: 3f19fe31ce896d74285eae55983a4d58, type: 3}
 --- !u!1 &1135342518656874320
 GameObject:
   m_ObjectHideFlags: 0

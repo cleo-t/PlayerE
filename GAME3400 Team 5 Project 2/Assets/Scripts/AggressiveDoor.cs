@@ -25,6 +25,11 @@ public class AggressiveDoor : MonoBehaviour
     [SerializeField]
     private State initialState = State.Waiting;
 
+    [SerializeField]
+    private AudioClip impactClip;
+    [SerializeField]
+    private AudioClip slideClip;
+
     private float timer;
     private State state;
 
@@ -56,6 +61,21 @@ public class AggressiveDoor : MonoBehaviour
             if (this.state > State.Resetting)
             {
                 this.state = State.Waiting;
+            }
+            switch (this.state)
+            {
+                case State.Waiting:
+                    this.EnterWaiting();
+                    break;
+                case State.Attacking:
+                    this.EnterAttacking();
+                    break;
+                case State.Closed:
+                    this.EnterClosed();
+                    break;
+                case State.Resetting:
+                    this.EnterResetting();
+                    break;
             }
         }
         switch(this.state)
@@ -133,5 +153,25 @@ public class AggressiveDoor : MonoBehaviour
         {
             KillPlayerEvent.Invoke();
         }
+    }
+
+    private void EnterWaiting()
+    {
+        AudioSource.PlayClipAtPoint(this.impactClip, this.transform.position, 0.5f);
+    }
+
+    private void EnterAttacking()
+    {
+        AudioSource.PlayClipAtPoint(this.slideClip, this.transform.position, 0.25f);
+    }
+
+    private void EnterClosed()
+    {
+        AudioSource.PlayClipAtPoint(this.impactClip, this.transform.position, 2);
+    }
+
+    private void EnterResetting()
+    {
+        AudioSource.PlayClipAtPoint(this.slideClip, this.transform.position, 0.1f);
     }
 }
