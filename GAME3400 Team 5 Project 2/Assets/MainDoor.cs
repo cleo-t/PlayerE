@@ -15,7 +15,7 @@ public class MainDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (checkTorchs(torches)) {
+        if (TorchManager.instance.allTorchesLit) {
             Destroy(gameObject);
         }
         
