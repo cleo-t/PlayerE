@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class TriggerBehavior : MonoBehaviour
 {
+
+    public float moveAmount = 3.3f;
+    public AudioClip closeSound;
+
     private bool triggered = false;
 
     private Transform rb;
-    private Vector3 moveAmount;
-    private AudioSource audioSource;
+    private Vector3 moveVector;
+
+    
     
 
 
@@ -18,8 +23,8 @@ public class TriggerBehavior : MonoBehaviour
     {
        
         rb = transform.parent;
-        audioSource = gameObject.GetComponentInParent<AudioSource>();
-        moveAmount = new Vector3(rb.transform.position.x, (rb.transform.position.y - 3.3f), rb.transform.position.z);
+        //audioSource = gameObject.GetComponentInParent<AudioSource>();
+        moveVector = new Vector3(rb.transform.position.x, (rb.transform.position.y - moveAmount), rb.transform.position.z);
         
     }
 
@@ -31,12 +36,10 @@ public class TriggerBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (!triggered && other.gameObject.tag.Equals("Player")) {
-            rb.transform.position = moveAmount;
-            audioSource.Play();
+            rb.transform.position = moveVector;
+            AudioSource.PlayClipAtPoint(closeSound, gameObject.transform.position);
             Destroy(gameObject);
         }
-
-        
     }
 
 }
