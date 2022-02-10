@@ -10,6 +10,8 @@ public class LightBehavior : MonoBehaviour
     public Color startColor;
     public Color endColor;
 
+    public bool on = false;
+
     private Light light;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,9 @@ public class LightBehavior : MonoBehaviour
 
             light.color = Color.Lerp(startColor, endColor, t);
         //}
+        if (light.enabled == true) {
+            on = true;
+        }
 
         /*
         float intensity = Random.Range(1f, 1.5f);
