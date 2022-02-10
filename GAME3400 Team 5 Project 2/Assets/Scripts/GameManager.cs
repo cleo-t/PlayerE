@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
         AggressiveDoor.KillPlayerEvent += this.OnPlayerKill;
         KillFloor.KillPlayerEvent += this.OnPlayerKill;
+        SpikeBehaviour.KillPlayerEvent += this.OnPlayerKill;
         this.currentCheckpointIndex = 0;
     }
 
