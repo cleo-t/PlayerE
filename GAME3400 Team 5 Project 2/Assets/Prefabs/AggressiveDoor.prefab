@@ -330,7 +330,7 @@ MonoBehaviour:
   distance: 10
   attackDuration: 1.5
   closedDuration: 1.5
-  resetDuration: 3.5
+  resetDuration: 1.5
   waitDuration: 0.15
   initialState: 0
   impactClip: {fileID: 8300000, guid: cb93ef88a64489145804a9a8a845ff01, type: 3}
