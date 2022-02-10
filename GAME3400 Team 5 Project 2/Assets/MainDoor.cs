@@ -16,6 +16,8 @@ public class MainDoor : MonoBehaviour
     void Update()
     {
         if (TorchManager.instance.allTorchesLit) {
+            Debug.Log("DONE");
+            LightingTransition.instance.brightness = 0.5f;
             Destroy(gameObject);
         }
         
