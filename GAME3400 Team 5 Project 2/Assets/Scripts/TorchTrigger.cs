@@ -6,11 +6,18 @@ using UnityEngine;
 public class TorchTrigger : MonoBehaviour
 {
     public event Action torchOn;
+    private bool triggered;
+
+    private void Start()
+    {
+        this.triggered = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!this.triggered && other.CompareTag("Player"))
         {
+            this.triggered = true;
             this.InvokeOnEvent();
         }
     }
