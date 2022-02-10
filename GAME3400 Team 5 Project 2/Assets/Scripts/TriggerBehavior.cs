@@ -13,11 +13,6 @@ public class TriggerBehavior : MonoBehaviour
     private Transform rb;
     private Vector3 moveVector;
 
-    
-    
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +26,14 @@ public class TriggerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other) {
         if (!triggered && other.gameObject.tag.Equals("Player")) {
             rb.transform.position = moveVector;
             AudioSource.PlayClipAtPoint(closeSound, gameObject.transform.position);
+            LightingTransition.instance.brightness = 0;
             Destroy(gameObject);
         }
     }
