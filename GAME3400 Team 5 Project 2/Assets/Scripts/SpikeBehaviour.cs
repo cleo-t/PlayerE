@@ -56,28 +56,37 @@ public class SpikeBehaviour : MonoBehaviour
     {
         this.timer += Time.fixedDeltaTime;
         float stateDuration = this.GetStateTimeLimit(this.state);
-        if (this.timer >= stateDuration)
+        if (!TorchManager.instance.allTorchesLit)
         {
-            this.timer -= stateDuration;
-            this.state++;
-            if (this.state > State.Resetting)
+            Debug.Log("hi");
+            this.state = initialState;
+        }
+        else
+        {
+            Debug.Log("No");
+            if (this.timer >= stateDuration)
             {
-                this.state = State.Waiting;
-            }
-            switch (this.state)
-            {
-                case State.Waiting:
-                    this.EnterWaiting();
-                    break;
-                case State.Attacking:
-                    this.EnterAttacking();
-                    break;
-                case State.Extended:
-                    this.EnterExtended();
-                    break;
-                case State.Resetting:
-                    this.EnterResetting();
-                    break;
+                this.timer -= stateDuration;
+                this.state++;
+                if (this.state > State.Resetting)
+                {
+                    this.state = State.Waiting;
+                }
+                switch (this.state)
+                {
+                    case State.Waiting:
+                        this.EnterWaiting();
+                        break;
+                    case State.Attacking:
+                        this.EnterAttacking();
+                        break;
+                    case State.Extended:
+                        this.EnterExtended();
+                        break;
+                    case State.Resetting:
+                        this.EnterResetting();
+                        break;
+                }
             }
         }
         switch (this.state)
