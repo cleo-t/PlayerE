@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8162330695051774799}
   m_Layer: 0
   m_Name: TorchPair
-  m_TagString: Untagged
+  m_TagString: Torch Pair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
